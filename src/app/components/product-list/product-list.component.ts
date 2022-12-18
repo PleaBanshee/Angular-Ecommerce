@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
   currentCategoryId: number = 1; // default val is 1
+  currentCategoryName: string = "";
 
   // inject ProductService, and current active route that loaded the component.
   // Usefull for accessing route parameters.
@@ -37,9 +38,12 @@ export class ProductListComponent implements OnInit {
       if (hasCategoryId) {
           // get the id param string. Convert string to a number using the "+" symbol. ! is a non-null assertion operator.
           this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
+          // get the "name" param string
+          this.currentCategoryName = this.route.snapshot.paramMap.get('name')!;
       } else {
           // default to category id is 1
           this.currentCategoryId = 1;
+          this.currentCategoryName = 'Books';
       }
 
       // get the products for the given category id

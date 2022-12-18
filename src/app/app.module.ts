@@ -14,6 +14,9 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 // Create routes from more to less specific. The generic wildcard route should be last.
 const routes: Routes = [
     {
+      path: 'category/:id/:name',
+      component: ProductListComponent
+    }, {
       path: 'category/:id', // can pass id parameter in URL
       component: ProductListComponent
     }, {
