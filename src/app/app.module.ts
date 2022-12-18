@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductService } from './services/product.service';
 import { Routes, RouterModule } from '@angular/router';
+import { ProductCategoryMenuComponent } from './compnents/product-category-menu/product-category-menu.component';
 
 // routes for viewing products
 // NB!!! Order of routes are important. The first match is used.
@@ -34,7 +35,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductCategoryMenuComponent
   ],
   imports: [
     BrowserModule,
