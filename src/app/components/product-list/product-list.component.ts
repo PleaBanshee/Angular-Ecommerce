@@ -14,6 +14,7 @@ export class ProductListComponent implements OnInit {
   products: Product[] = [];
   currentCategoryId: number = 1; // default val is 1
   currentCategoryName: string = "";
+  searchMode: boolean = false;
 
   // inject ProductService, and current active route that loaded the component.
   // Usefull for accessing route parameters.
@@ -29,8 +30,34 @@ export class ProductListComponent implements OnInit {
       });
   }
 
-  // invokes method once subscribed.
   listProducts() {
+
+      // perform product search if route contains "keyword"
+      this.searchMode = this.route.snapshot.paramMap.has('keyword');
+
+      if (this.searchMode) {
+          // do search
+          this.handleSearchProducts();
+      } else {
+          // display products based on category
+          this.handleListProducts();
+      }
+
+      this.handleListProducts();
+  }
+
+  handleSearchProducts() {
+      const keyword: string = this.route.snapshot.paramMap.get('keyword')!;
+
+      // now search for the products using keyword
+      this.productService.searchProducts(keyword).subscribe(
+          data => {
+              this.products = data;
+          });
+  }
+
+  // invokes method once subscribed.
+  handleListProducts() {
 
       // checks if id parameter is present in URL
       // Use activated route, check state of current route, mapp all route parameters and read the id
