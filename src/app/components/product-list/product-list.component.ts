@@ -42,8 +42,6 @@ export class ProductListComponent implements OnInit {
           // display products based on category
           this.handleListProducts();
       }
-
-      this.handleListProducts();
   }
 
   handleSearchProducts() {
@@ -62,6 +60,7 @@ export class ProductListComponent implements OnInit {
       // checks if id parameter is present in URL
       // Use activated route, check state of current route, mapp all route parameters and read the id
       const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
+
       if (hasCategoryId) {
           // get the id param string. Convert string to a number using the "+" symbol. ! is a non-null assertion operator.
           this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
