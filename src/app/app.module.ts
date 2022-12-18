@@ -8,12 +8,16 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductService } from './services/product.service';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { SearchComponent } from './components/search/search.component';
 
 // routes for viewing products
 // NB!!! Order of routes are important. The first match is used.
 // Create routes from more to less specific. The generic wildcard route should be last.
 const routes: Routes = [
     {
+      path: 'search/:keyword', // can pass keyword parameter in URL
+      component: ProductListComponent
+    }, {
       path: 'category/:id/:name',
       component: ProductListComponent
     }, {
@@ -39,7 +43,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    SearchComponent
   ],
   imports: [
     RouterModule.forRoot(routes), // for routing

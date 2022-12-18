@@ -1,0 +1,18 @@
+<div class="form-header">
+  <!-- #var --- template variable -->
+  <!-- Template variables help you use data from one part of a template in another part of the template.
+  Use template variables to perform tasks such as respond to user input or finely tune your application's forms. -->
+  <!-- Event binding --- listen for an event, call method from Angular code -->
+  <input
+    #searchInput
+    class="au-input au-input-xl"
+    type="text" placeholder="Search for products ..."
+    (keyup.enter)="searchProduct(searchInput.value)"
+  />
+  <button
+    class="au-btn-submit"
+    (click)="searchProduct(searchInput.value)"
+  >
+    Search
+  </button>
+</div>
