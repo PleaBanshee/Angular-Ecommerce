@@ -43,10 +43,18 @@ export class ProductService {
 
   private getProducts(searchUrl: string): Observable<Product[]> {
 
-    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
-      map(response => response._embedded.products) // returns JSON data
-    );
+      return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
+        map(response => response._embedded.products) // returns JSON data
+      );
   }
+
+  getProduct(productId: number) {
+
+      // need to build URL based on product id. Check Spring REST endpoint
+      const productUrl = `${this.baseUrl}/${productId}`;
+      return this.httpClient.get<Product>(productUrl);
+  }
+
 }
 
 // Unwraps JSON from Spring REST _embedded entry. Check REST API json.
