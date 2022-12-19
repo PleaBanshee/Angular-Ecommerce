@@ -11,8 +11,12 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
   currentCategoryId: number = 1; // default val is 1
+  previousCategoryId: number = 1;
   currentCategoryName: string = '';
   searchMode: boolean = false;
+  pageNumber: number = 1; // Angular Pagination is 1 based
+  pageSize: number = 10;
+  totalElements: number = 0;
 
   // inject ProductService, and current active route that loaded the component.
   // Usefull for accessing route parameters.
@@ -68,11 +72,29 @@ export class ProductListComponent implements OnInit {
       this.currentCategoryName = 'Books';
     }
 
+    // check if the current category id is the same as the previous category id
+    // Note: Angular will reuse a component if it is currently being viewed.
+    // if a different category is selected, set the page number back to 1
+    if (this.previousCategoryId != this.currentCategoryId) {
+      this.pageNumber = 1;
+    }
+    this.previousCategoryId = this.currentCategoryId;
+    console.log(
+      `currentCategoryId=${this.currentCategoryId}, pageNumber=${this.pageNumber}`
+    );
+
     // get the products for the given category id
     this.productService
-      .getProductList(this.currentCategoryId)
+      .getProductListPaginate(
+        this.pageNumber - 1, // SPRING REST uses 0 based page indexing
+        this.pageSize,
+        this.currentCategoryId
+      )
       .subscribe((data) => {
-        this.products = data; // assign data to product array
+        this.products = data._embedded.products;
+        this.pageNumber = data.page.number + 1; // Angular Pagination is 1 based
+        this.pageSize = data.page.size;
+        this.totalElements = data.page.totalElements;
       });
   }
 }
