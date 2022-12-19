@@ -1,31 +1,65 @@
 <div class="main-content">
-    <div class="section-content section-content p-30">
-        <h4 class="text-center">Category: {{ currentCategoryName }} </h4>
-        <hr>
-        <div class="container-fluid">
-            <div class="row">
-                <!-- loop over product items -->
-                <div *ngFor="let product of products" class="col-md-3">
-                      <div class="product-box">
-                          <a routerLink="/products/{{ product.id }}">
-                              <img src="{{ product.imageUrl }}" alt="{{ product.name }}.png" class="img-responsive">
-                          </a>
-                          <a routerLink="/products/{{ product.id }}">
-                              <h1>{{ product.name }}</h1>
-                          </a>
-                          <div class="price">
-                              <!-- currency pipe formatting -->
-                              {{ product.unitPrice | currency:"USD" }}
-                          </div>
-                          <a href="#" class="primary-btn">Add to Cart</a>
-                      </div>
-                </div>
-                <!-- if products are empty display a message. role --- provides info to assistive tech such as screen readers -->
-                <!-- Safe navigation operator (?) guards against null and undefined values in property paths -->
-                <div *ngIf="products?.length == 0" class="alert alert-warning bg-primary" role="alert">
-                    <h3 class="text-center text-light">No products found</h3>
-                </div>
+  <div class="section-content section-content p-30">
+    <h4 class="text-center">Category: {{ currentCategoryName }}</h4>
+    <hr />
+    <div class="container-fluid">
+      <div class="row">
+        <!-- loop over product items -->
+        <div *ngFor="let product of products" class="col-md-3">
+          <div class="product-box">
+            <a routerLink="/products/{{ product.id }}">
+              <img
+                src="{{ product.imageUrl }}"
+                alt="{{ product.name }}.png"
+                class="img-responsive"
+              />
+            </a>
+            <a routerLink="/products/{{ product.id }}">
+              <h1>{{ product.name }}</h1>
+            </a>
+            <div class="price">
+              <!-- currency pipe formatting -->
+              {{ product.unitPrice | currency : "USD" }}
             </div>
+            <a href="#" class="primary-btn">Add to Cart</a>
+          </div>
         </div>
+        <!-- if products are empty display a message. role --- provides info to assistive tech such as screen readers -->
+        <!-- Safe navigation operator (?) guards against null and undefined values in property paths -->
+        <div
+          *ngIf="products?.length == 0"
+          class="alert alert-warning bg-primary"
+          role="alert"
+        >
+          <h3 class="text-center text-light">No products found</h3>
+        </div>
+      </div>
+      <!-- begin footer -->
+      <div class="footer-pagination">
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-9" style="padding-left: 30%">
+                <!-- [()] => two-way binding -->
+                <!-- [] => one-way binding -->
+                <!-- () => event binding -->
+                <ngb-pagination
+                  [(page)]="pageNumber"
+                  [collectionSize]="totalElements"
+                  [pageSize]="pageSize"
+                  [rotate]="true"
+                  [boundaryLinks]="true"
+                  [maxSize]="5"
+                  (pageChange)="listProducts()"
+                >
+                </ngb-pagination>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end footer -->
     </div>
+  </div>
 </div>
