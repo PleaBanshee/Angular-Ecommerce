@@ -48,11 +48,11 @@ export class ProductService {
       );
   }
 
-  getProduct(productId: number) {
+  getProduct(productId: number): Observable<Product> {
 
       // need to build URL based on product id. Check Spring REST endpoint
       const productUrl = `${this.baseUrl}/${productId}`;
-      return this.httpClient.get<Product>(productUrl);
+      return this.httpClient.get<Product>(productUrl); // call REST API
   }
 
 }
