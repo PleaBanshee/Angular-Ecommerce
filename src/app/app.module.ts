@@ -17,7 +17,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 const routes: Routes = [
     {
       path: 'products/:id', // can pass id parameter in URL
-      component: ProductListComponent
+      component: ProductDetailsComponent // NB!!! very important to check to which component you send the data
     }, {
       path: 'search/:keyword', // can pass keyword parameter in URL
       component: ProductListComponent
