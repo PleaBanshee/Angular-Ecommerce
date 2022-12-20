@@ -9,7 +9,6 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-
   products: Product[] = [];
   currentCategoryId: number = 1; // default val is 1
   previousCategoryId: number = 1;
@@ -18,6 +17,7 @@ export class ProductListComponent implements OnInit {
   pageNumber: number = 1; // Angular Pagination is 1 based
   pageSize: number = 8; // number of products on page
   totalElements: number = 0;
+  previousKeyword: string = '';
 
   // inject ProductService, and current active route that loaded the component.
   // Usefull for accessing route parameters.
@@ -49,11 +49,29 @@ export class ProductListComponent implements OnInit {
 
   handleSearchProducts() {
     const keyword: string = this.route.snapshot.paramMap.get('keyword')!;
+    // if we have a different keyword than the previous one, then set page number to 1
+    if (this.previousKeyword != keyword) {
+      this.pageNumber = 1;
+    }
+    this.previousKeyword = keyword;
+    console.log(`keyword=${keyword}, pageNumber=${this.pageNumber}`)
 
     // now search for the products using keyword
-    this.productService.searchProducts(keyword).subscribe((data) => {
-      this.products = data;
-    });
+    this.productService.searchProductsPaginate(
+      this.pageNumber - 1, // SPRING REST uses 0 based page indexing
+      this.pageSize,
+      keyword
+    ).subscribe(this.processResult());
+  }
+
+  // retuns JSON data for keyword pagination
+  processResult() {
+    return (data: any) => {
+      this.products = data._embedded.products;
+      this.pageNumber = data.page.number + 1; // Angular Pagination is 1 based
+      this.pageSize = data.page.size;
+      this.totalElements = data.page.totalElements;
+    }
   }
 
   // invokes method once subscribed.
@@ -91,12 +109,7 @@ export class ProductListComponent implements OnInit {
         this.pageSize,
         this.currentCategoryId
       )
-      .subscribe((data) => {
-        this.products = data._embedded.products;
-        this.pageNumber = data.page.number + 1; // Angular Pagination is 1 based
-        this.pageSize = data.page.size;
-        this.totalElements = data.page.totalElements;
-      });
+      .subscribe(this.processResult());
   }
 
   // when user selects page size (how many items displayed on page)
