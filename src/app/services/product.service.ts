@@ -34,6 +34,17 @@ export class ProductService {
     return this.getProducts(searchUrl);
   }
 
+  // search products using pagination and a keyword
+  searchProductsPaginate(
+    page: number,
+    pageSize: number,
+    keyword: string
+  ): Observable<GetResponseProducts> {
+    // need to build URL based on keyword,page number and page size. Check Spring REST endpoint
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${keyword}&page=${page}&size=${pageSize}`;
+    return this.httpClient.get<GetResponseProducts>(searchUrl); // return data
+  }
+
   private getProducts(searchUrl: string): Observable<Product[]> {
     return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
       map((response) => response._embedded.products) // returns JSON data
@@ -63,14 +74,14 @@ export class ProductService {
 interface GetResponseProducts {
   _embedded: {
     products: Product[];
-  },
+  };
   page: {
     // pagination info
     size: number;
     totalElements: number;
     totalPages: number;
     number: number;
-  }
+  };
 }
 
 // interface for product category
