@@ -12,38 +12,50 @@ import { SearchComponent } from './components/search/search.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 // routes for viewing products
 // NB!!! Order of routes are important. The first match is used.
 // Create routes from more to less specific. The generic wildcard route should be last.
 const routes: Routes = [
-    {
-      path: 'products/:id', // can pass id parameter in URL
-      component: ProductDetailsComponent // NB!!! very important to check to which component you send the data
-    }, {
-      path: 'search/:keyword', // can pass keyword parameter in URL
-      component: ProductListComponent
-    }, {
-      path: 'category/:id/:name',
-      component: ProductListComponent
-    }, {
-      path: 'category/:id', // can pass id parameter in URL
-      component: ProductListComponent
-    }, {
-      path: 'category',
-      component: ProductListComponent
-    }, {
-      path: 'products',
-      component: ProductListComponent
-    }, {
-      path: '', // default path
-      redirectTo: '/products',
-      pathMatch: 'full' // match the full path, instead of just the prefix
-    }, {
-      path: '**', // generic wildcard. Matchs on anything not in the routes above.
-      redirectTo: '/products',
-      pathMatch: 'full'
-    },
+  {
+    path: 'cart-details',
+    component: CartDetailsComponent,
+  },
+  {
+    path: 'products/:id', // can pass id parameter in URL
+    component: ProductDetailsComponent, // NB!!! very important to check to which component you send the data
+  },
+  {
+    path: 'search/:keyword', // can pass keyword parameter in URL
+    component: ProductListComponent,
+  },
+  {
+    path: 'category/:id/:name',
+    component: ProductListComponent,
+  },
+  {
+    path: 'category/:id', // can pass id parameter in URL
+    component: ProductListComponent,
+  },
+  {
+    path: 'category',
+    component: ProductListComponent,
+  },
+  {
+    path: 'products',
+    component: ProductListComponent,
+  },
+  {
+    path: '', // default path
+    redirectTo: '/products',
+    pathMatch: 'full', // match the full path, instead of just the prefix
+  },
+  {
+    path: '**', // generic wildcard. Matchs on anything not in the routes above.
+    redirectTo: '/products',
+    pathMatch: 'full',
+  }
 ];
 @NgModule({
   declarations: [
@@ -52,15 +64,16 @@ const routes: Routes = [
     ProductCategoryMenuComponent,
     SearchComponent,
     ProductDetailsComponent,
-    CartStatusComponent
+    CartStatusComponent,
+    CartDetailsComponent,
   ],
   imports: [
     RouterModule.forRoot(routes), // for routing
     BrowserModule,
     HttpClientModule, // for HTTP services
-    NgbModule
+    NgbModule,
   ],
   providers: [ProductService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
