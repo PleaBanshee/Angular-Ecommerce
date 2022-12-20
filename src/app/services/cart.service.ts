@@ -21,7 +21,9 @@ export class CartService {
     let existingCartItem: CartItem = undefined!;
     if (this.cartItems.length > 0) {
       // find item in cart, check that the cart is not empty
-      existingCartItem = this.cartItems.find(tempCartItem => tempCartItem.id === cartItem.id)!;
+      existingCartItem = this.cartItems.find(
+        (tempCartItem) => tempCartItem.id === cartItem.id
+      )!;
       // check if item exists in cart
       alreadyExistsInCart = existingCartItem != undefined;
     }
