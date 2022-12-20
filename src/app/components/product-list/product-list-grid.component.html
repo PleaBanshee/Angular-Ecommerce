@@ -55,6 +55,16 @@
                 >
                 </ngb-pagination>
               </div>
+              <div class="col-md-3 mt-2 text-right" style="padding-left: 5%">
+                <span class="mr-2">Page Size</span>
+                <!-- Event binding on change. Makes use of a template variable -->
+                <select #pageSelect (change)="updatePageSize(pageSelect.value)">
+                  <option selected="true">5</option>
+                  <option>10</option>
+                  <option>20</option>
+                  <option>25</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
