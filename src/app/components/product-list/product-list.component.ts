@@ -61,7 +61,7 @@ export class ProductListComponent implements OnInit {
       this.pageNumber - 1, // SPRING REST uses 0 based page indexing
       this.pageSize,
       keyword
-    ).subscribe(this.processResult());
+    ).subscribe(this.processResult()); // subscribe allows an object to receive updated values from an observable
   }
 
   // retuns JSON data for keyword pagination
