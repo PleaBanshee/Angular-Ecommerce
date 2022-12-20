@@ -9,6 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
+
   products: Product[] = [];
   currentCategoryId: number = 1; // default val is 1
   previousCategoryId: number = 1;
@@ -96,5 +97,12 @@ export class ProductListComponent implements OnInit {
         this.pageSize = data.page.size;
         this.totalElements = data.page.totalElements;
       });
+  }
+
+  // when user selects page size (how many items displayed on page)
+  updatePageSize(pageSize: string) {
+    this.pageSize = +pageSize; // convert string to number
+    this.pageNumber = 1;
+    this.listProducts();
   }
 }
