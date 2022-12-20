@@ -118,4 +118,10 @@ export class ProductListComponent implements OnInit {
     this.pageNumber = 1;
     this.listProducts();
   }
+
+  // add to cart
+  addToCart(product: Product) {
+    console.log(`Adding to cart: ${product.name}, ${product.unitPrice}`);
+    // TODO --- add to cart code
+  }
 }
