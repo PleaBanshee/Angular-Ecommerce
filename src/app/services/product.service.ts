@@ -51,10 +51,10 @@ export class ProductService {
     page: number,
     pageSize: number,
     categoryId: number
-  ): Observable<GetResponseProducts[]> {
+  ): Observable<GetResponseProducts> {
     // need to build URL based on category id,page number and page size. Check Spring REST endpoint
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${categoryId}&page=${page}&size=${pageSize}`;
-    return this.httpClient.get<GetResponseProducts[]>(searchUrl); // return data
+    return this.httpClient.get<GetResponseProducts>(searchUrl); // return data
   }
 }
 
@@ -63,14 +63,14 @@ export class ProductService {
 interface GetResponseProducts {
   _embedded: {
     products: Product[];
-  };
+  },
   page: {
     // pagination info
     size: number;
     totalElements: number;
     totalPages: number;
     number: number;
-  };
+  }
 }
 
 // interface for product category
