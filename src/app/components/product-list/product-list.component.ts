@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
   currentCategoryName: string = '';
   searchMode: boolean = false;
   pageNumber: number = 1; // Angular Pagination is 1 based
-  pageSize: number = 10;
+  pageSize: number = 8; // number of products on page
   totalElements: number = 0;
 
   // inject ProductService, and current active route that loaded the component.
