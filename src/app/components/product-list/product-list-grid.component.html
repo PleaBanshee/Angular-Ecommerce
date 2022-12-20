@@ -44,6 +44,7 @@
                 <!-- [()] => two-way binding -->
                 <!-- [] => one-way binding -->
                 <!-- () => event binding -->
+                <!-- boundaryLinks => show first and last page links -->
                 <ngb-pagination
                   [(page)]="pageNumber"
                   [collectionSize]="totalElements"
@@ -59,6 +60,7 @@
                 <span class="mr-2">Page Size</span>
                 <!-- Event binding on change. Makes use of a template variable -->
                 <select #pageSelect (change)="updatePageSize(pageSelect.value)">
+                  <option>2</option>
                   <option selected="true">5</option>
                   <option>10</option>
                   <option>20</option>
