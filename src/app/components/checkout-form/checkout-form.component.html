@@ -5,33 +5,34 @@
   >
     <div class="container-fluid">
       <!-- receive formGroup Property from Checkout Form Component -->
-      <form [formGroup]="checkoutFormGroup" action="GET/POST">
+      <!-- When using reactive form, use the ngSubmit property to send data -->
+      <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
         <!-- customer form group. Name of key in form group -->
         <div formGroupname="customer" class="form-area">
           <h3>Customer</h3>
           <div class="row">
             <div class="col-md-2">
-              <label>First Name: </label>
+              <label>First Name:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
-                <input formControlName="firstName" type="text" />
+                <input formControlName="firstName" type="text">
               </div>
             </div>
             <div class="col-md-2">
-              <label>Last Name: </label>
+              <label>Last Name:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
-                <input formControlName="lastName" type="text" />
+                <input formControlName="lastName" type="text">
               </div>
             </div>
             <div class="col-md-2">
-              <label>Email Name: </label>
+              <label>Email:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
-                <input formControlName="email" type="text" />
+                <input formControlName="email" type="text">
               </div>
             </div>
           </div>
@@ -41,7 +42,7 @@
           <button
             type="submit"
             class="btn btn-info border-light text-light"
-            style="border: 3px solid #ccc!important;"
+            style="border: 3px solid #ccc !important"
           >
             Purchase
           </button>
