@@ -73,4 +73,27 @@ export class CartService {
     );
     console.log('----');
   }
+
+  // decrement quantity of product from cart checkout --- service
+  decrementQuantity(cartItem: CartItem) {
+    cartItem.quantity--;
+    if (cartItem.quantity === 0) {
+      this.remove(cartItem);
+    } else {
+      this.computeCartTotals();
+    }
+  }
+
+  // remove item from cart
+  remove(cartItem: CartItem) {
+    // get index of item in cart
+    const itemIndex = this.cartItems.findIndex(
+      (tempCartItem) => tempCartItem.id === cartItem.id
+    );
+    // if found, remove item from cart
+    if (itemIndex > -1) {
+      this.cartItems.splice(itemIndex, 1); // removes element from array and returns it
+      this.computeCartTotals();
+    }
+  }
 }

@@ -38,7 +38,7 @@ export class CartDetailsComponent implements OnInit {
   }
 
   // decrease quantity of product from cart checkout
-  decremetQuantity(cartItem: CartItem) {
+  decrementQuantity(cartItem: CartItem) {
     this.cartService.decrementQuantity(cartItem);
   }
 }
