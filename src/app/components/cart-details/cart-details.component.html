@@ -31,7 +31,10 @@
                 <div class="row no-gutters">
                   <div class="col">
                     <!-- increase item quantity -->
-                    <button (click)="incrementQuantity(cartItem)" class="btn btn-primary btn-sm">
+                    <button
+                      (click)="incrementQuantity(cartItem)"
+                      class="btn btn-primary btn-sm"
+                    >
                       <i class="fas fa-plus"></i>
                     </button>
                   </div>
@@ -40,13 +43,18 @@
                   </div>
                   <div class="col">
                     <!-- decrease item quantity -->
-                    <button (click)="decrementQuantity(cartItem)" class="btn btn-primary btn-sm">
+                    <button
+                      (click)="decrementQuantity(cartItem)"
+                      class="btn btn-primary btn-sm"
+                    >
                       <i class="fas fa-minus"></i>
                     </button>
                   </div>
                   <div class="col-8"></div>
                 </div>
               </div>
+              <hr>
+              <button (click)="remove(cartItem)" class="btn btn-primary btn-sm mt-2">Remove</button>
               <p class="mt-2">
                 Subtotal:
                 {{ cartItem.quantity * cartItem.unitPrice | currency : "USD" }}
