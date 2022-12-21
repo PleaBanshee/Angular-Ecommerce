@@ -7,9 +7,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./checkout-form.component.css']
 })
 export class CheckoutFormComponent implements OnInit {
-  checkoutFormGroup: FormGroup | undefined;
+  checkoutFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {  }
+  constructor(private formBuilder: FormBuilder) {
+    this.checkoutFormGroup = new FormGroup({});
+  }
 
   // build the form
   ngOnInit(): void {
