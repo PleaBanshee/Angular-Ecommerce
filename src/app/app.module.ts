@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // routes for viewing products
 // NB!!! Order of routes are important. The first match is used.
@@ -78,6 +79,7 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule, // for HTTP services
     NgbModule,
+    ReactiveFormsModule // for form validation
   ],
   providers: [ProductService],
   bootstrap: [AppComponent],
