@@ -13,11 +13,16 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
 
 // routes for viewing products
 // NB!!! Order of routes are important. The first match is used.
 // Create routes from more to less specific. The generic wildcard route should be last.
 const routes: Routes = [
+  {
+    path: 'checkout',
+    component: CheckoutFormComponent,
+  },
   {
     path: 'cart-details',
     component: CartDetailsComponent,
@@ -48,12 +53,12 @@ const routes: Routes = [
   },
   {
     path: '', // default path
-    redirectTo: '/products',
+    redirectTo: 'products',
     pathMatch: 'full', // match the full path, instead of just the prefix
   },
   {
     path: '**', // generic wildcard. Matchs on anything not in the routes above.
-    redirectTo: '/products',
+    redirectTo: 'products',
     pathMatch: 'full',
   }
 ];
@@ -66,6 +71,7 @@ const routes: Routes = [
     ProductDetailsComponent,
     CartStatusComponent,
     CartDetailsComponent,
+    CheckoutFormComponent,
   ],
   imports: [
     RouterModule.forRoot(routes), // for routing
