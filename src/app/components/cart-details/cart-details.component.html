@@ -31,7 +31,7 @@
                 <div class="row no-gutters">
                   <div class="col">
                     <!-- increase item quantity -->
-                    <button class="btn btn-primary btn-sm">
+                    <button (click)="incrementQuantity(cartItem)" class="btn btn-primary btn-sm">
                       <i class="fas fa-plus"></i>
                     </button>
                   </div>
@@ -40,7 +40,7 @@
                   </div>
                   <div class="col">
                     <!-- decrease item quantity -->
-                    <button class="btn btn-primary btn-sm">
+                    <button (click)="decrementQuantity(cartItem)" class="btn btn-primary btn-sm">
                       <i class="fas fa-minus"></i>
                     </button>
                   </div>
