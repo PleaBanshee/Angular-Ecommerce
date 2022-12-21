@@ -28,7 +28,24 @@
             <td style="border: 2px solid #ccc">
               <div class="items">
                 <label>Quantity:</label>
-                {{ cartItem.quantity }}
+                <div class="row no-gutters">
+                  <div class="col">
+                    <!-- increase item quantity -->
+                    <button class="btn btn-primary btn-sm">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                  <div class="col ml-4 mr-2">
+                    {{ cartItem.quantity }}
+                  </div>
+                  <div class="col">
+                    <!-- decrease item quantity -->
+                    <button class="btn btn-primary btn-sm">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+                  <div class="col-8"></div>
+                </div>
               </div>
               <p class="mt-2">
                 Subtotal:
@@ -46,7 +63,11 @@
           </tr>
         </table>
       </div>
-      <div *ngIf="cartItems.length === 0" class="alert alert-primary bg-info col-md-12 text-center text-light" role="alert">
+      <div
+        *ngIf="cartItems.length === 0"
+        class="alert alert-primary bg-info col-md-12 text-center text-light"
+        role="alert"
+      >
         Your Shopping Cart is empty
       </div>
     </div>
