@@ -12,23 +12,27 @@
           <h3>Customer</h3>
           <div class="row">
             <div class="col-md-2">
-              <label>First Name:</label>
+              <label style="font-weight: 700;">First Name:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
                 <input formControlName="firstName" type="text" />
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>Last Name:</label>
+              <label style="font-weight: 700;">Last Name:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
                 <input formControlName="lastName" type="text" />
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>Email:</label>
+              <label style="font-weight: 700;">Email:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
@@ -39,67 +43,83 @@
         </div>
         <!-- Shipping Address -->
         <div formGroupName="shippingAddress" class="form-area">
-          <h3>Shipping Address</h3>
           <div class="row">
-            <div class="col-md-2">
-              <label>Country:</label>
-            </div>
-            <div class="col-md-9">
-              <div class="input-space">
-                <select formControlName="country">
-                  <option value="RSA">TO DO</option>
-                </select>
+            <h3 style="font-weight: 700;">Shipping Address</h3>
+            <div class="row">
+              <div class="col-md-2">
+                <label style="font-weight: 700;">Country:</label>
+              </div>
+              <div class="col-md-9">
+                <div class="input-space">
+                  <select formControlName="country">
+                    <option value="RSA">TO DO</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div class="col-md-2">
-              <label>Street:</label>
-            </div>
-            <div class="col-md-9">
-              <div class="input-space">
-                <input formControlName="street" type="text" />
+            <div class="row">
+              <div class="col-md-2">
+                <label style="font-weight: 700;">Street:</label>
+              </div>
+              <div class="col-md-9">
+                <div class="input-space">
+                  <input formControlName="street" type="text" />
+                </div>
               </div>
             </div>
-            <div class="col-md-2">
-              <label>City:</label>
-            </div>
-            <div class="col-md-9">
-              <div class="input-space">
-                <input formControlName="city" type="text" />
+            <div class="row">
+              <div class="col-md-2">
+                <label style="font-weight: 700;">City:</label>
+              </div>
+              <div class="col-md-9">
+                <div class="input-space">
+                  <input formControlName="city" type="text" />
+                </div>
               </div>
             </div>
-            <div class="col-md-2">
-              <label>State:</label>
-            </div>
-            <div class="col-md-9">
-              <div class="input-space">
-                <select formControlName="state">
-                  <option value="North-West">TO DO</option>
-                </select>
+            <div class="row">
+              <div class="col-md-2">
+                <label style="font-weight: 700;">State:</label>
+              </div>
+              <div class="col-md-9">
+                <div class="input-space">
+                  <select formControlName="state">
+                    <option value="North-West">TO DO</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div class="col-md-2">
-              <label>Zip Code:</label>
-            </div>
-            <div class="col-md-9">
-              <div class="input-space">
-                <input formControlName="zipCode" type="text" />
+            <div class="row">
+              <div class="col-md-2">
+                <label style="font-weight: 700;">Zip Code:</label>
+              </div>
+              <div class="col-md-9">
+                <div class="input-space">
+                  <input formControlName="zipCode" type="text" />
+                </div>
               </div>
             </div>
           </div>
         </div>
         <!-- Checkbox: Shipping same as Billing address -->
-        <div class="input-space">
-          <label class="au-checkbox">
-            <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
-            <span class="au-checkmark"></span>Billing address same as Shipping address
-          </label>
+        <div class="row">
+          <div class="input-space">
+            <label class="au-checkbox">
+              <input
+                type="checkbox"
+                (change)="copyShippingAddressToBillingAddress($event)"
+              />
+              <span class="au-checkmark"></span>Billing address same as Shipping
+              address
+            </label>
+          </div>
         </div>
         <!-- Billing Address -->
         <div formGroupName="billingAddress" class="form-area">
           <h3>Billing Address</h3>
           <div class="row">
             <div class="col-md-2">
-              <label>Country:</label>
+              <label style="font-weight: 700;">Country:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
@@ -108,24 +128,30 @@
                 </select>
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>Street:</label>
+              <label style="font-weight: 700;">Street:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
                 <input formControlName="street" type="text" />
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>City:</label>
+              <label style="font-weight: 700;">City:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
                 <input formControlName="city" type="text" />
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>State:</label>
+              <label style="font-weight: 700;">State:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
@@ -134,8 +160,10 @@
                 </select>
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>Zip Code:</label>
+              <label style="font-weight: 700;">Zip Code:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
@@ -149,7 +177,7 @@
           <h3>Credit Card</h3>
           <div class="row">
             <div class="col-md-2">
-              <label>Card Type:</label>
+              <label style="font-weight: 700;">Card Type:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
@@ -159,32 +187,40 @@
                 </select>
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>Name on Card:</label>
+              <label style="font-weight: 700;">Name on Card:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
                 <input formControlName="nameOnCard" type="text" />
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>Card Number:</label>
+              <label style="font-weight: 700;">Card Number:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
                 <input formControlName="cardNumber" type="text" />
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>Security Code:</label>
+              <label style="font-weight: 700;">Security Code:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
                 <input formControlName="securityCode" type="text" />
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>Expiration Month:</label>
+              <label style="font-weight: 700;">Expiration Month:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
@@ -193,8 +229,10 @@
                 </select>
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-2">
-              <label>Expiration Year:</label>
+              <label style="font-weight: 700;">Expiration Year:</label>
             </div>
             <div class="col-md-9">
               <div class="input-space">
@@ -208,10 +246,10 @@
         <!-- Order Review -->
         <div class="form-area">
           <h3>Order Review</h3>
-          <div class="row">
-              <p>Total Quantity: {{ totalQuantity }}</p>
-              <p>Shipping: FREE</p>
-              <p>Total Price: {{ totalPrice }}</p>
+          <div class="row text-center" style="font-weight: 700;">
+            <p>Total Quantity: {{ totalQuantity }}</p>
+            <p>Shipping: FREE</p>
+            <p>Total Price: {{ totalPrice }}</p>
           </div>
         </div>
         <!-- submit button -->
