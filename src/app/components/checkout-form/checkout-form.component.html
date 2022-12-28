@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-9">
               <div class="input-space">
-                <input formControlName="firstName" type="text">
+                <input formControlName="firstName" type="text" />
               </div>
             </div>
             <div class="col-md-2">
@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-9">
               <div class="input-space">
-                <input formControlName="lastName" type="text">
+                <input formControlName="lastName" type="text" />
               </div>
             </div>
             <div class="col-md-2">
@@ -32,7 +32,157 @@
             </div>
             <div class="col-md-9">
               <div class="input-space">
-                <input formControlName="email" type="text">
+                <input formControlName="email" type="text" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Shipping Address -->
+        <div formGroupName="shippingAddress" class="form-area">
+          <h3>Shipping Address</h3>
+          <div class="row">
+            <div class="col-md-2">
+              <label>Country:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="country">
+                  <option value="RSA">TO DO</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>Street:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="street" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>City:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="city" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>State:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="state">
+                  <option value="North-West">TO DO</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>Zip Code:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="zipCode" type="text" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Billing Address -->
+        <div formGroupName="billingAddress" class="form-area">
+          <h3>Billing Address</h3>
+          <div class="row">
+            <div class="col-md-2">
+              <label>Country:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="country" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>Street:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="street" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>City:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="city" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>State:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="state" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>Zip Code:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="zipCode" type="text" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Credit Card Information -->
+        <div formGroupName="creditCard" class="form-area">
+          <h3>Credit Card</h3>
+          <div class="row">
+            <div class="col-md-2">
+              <label>Card Type:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="cardType" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>Name on Card:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="nameOnCard" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>Card Number:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="cardNumber" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>Security Code:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="securityCode" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>Expiration Month:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="expirationMonth" type="text" />
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label>Expiration Year:</label>
+            </div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="expirationYear" type="text" />
               </div>
             </div>
           </div>
