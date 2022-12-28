@@ -13,6 +13,8 @@ import {
 })
 export class CheckoutFormComponent implements OnInit {
   checkoutFormGroup!: FormGroup; //  non-null assertion on form instantiation
+  totalPrice: number = 0;
+  totalQuantity: number = 0;
 
   constructor(private formBuilder: FormBuilder) {}
 
