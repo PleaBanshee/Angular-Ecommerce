@@ -18,29 +18,29 @@ export class CheckoutFormComponent implements OnInit {
         firstName: [''],
         lastName: [''],
         email: ['']
+      }),
+      shippingAddress: this.formBuilder.group({
+        street: [''],
+        city: [''],
+        state: [''],
+        country: [''],
+        zipCode: ['']
+      }),
+      billingAddress: this.formBuilder.group({
+        street: [''],
+        city: [''],
+        state: [''],
+        country: [''],
+        zipCode: ['']
+      }),
+      creditCard: this.formBuilder.group({
+        cardType: [''],
+        nameOnCard: [''],
+        cardNumber: [''],
+        securityCode: [''],
+        expirationMonth: [''],
+        expirationYear: ['']
       })
-      // shippingAddress: this.formBuilder.group({
-      //   street: [''],
-      //   city: [''],
-      //   state: [''],
-      //   country: [''],
-      //   zipCode: [''],
-      // }),
-      // billingAddress: this.formBuilder.group({
-      //   street: [''],
-      //   city: [''],
-      //   state: [''],
-      //   country: [''],
-      //   zipCode: [''],
-      // }),
-      // creditCard: this.formBuilder.group({
-      //   cardType: [''],
-      //   nameOnCard: [''],
-      //   cardNumber: [''],
-      //   securityCode: [''],
-      //   expirationMonth: [''],
-      //   expirationYear: [''],
-      // }),
     });
   }
 
@@ -49,7 +49,5 @@ export class CheckoutFormComponent implements OnInit {
     // log form values. Check for null or undefined values
     console.log(this.checkoutFormGroup.get('customer')?.value);
     console.log(`The email address is ${this.checkoutFormGroup.get('customer')?.value.email}`);
-    console.log(this.checkoutFormGroup);
   }
-
 }
