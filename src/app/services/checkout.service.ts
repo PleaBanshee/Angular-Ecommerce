@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -5,7 +6,11 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class CheckoutService {
-  constructor() {}
+  private countriesUrl = 'http://localhost:8080/api/countries';
+  private statesUrl = 'http://localhost:8080/api/states';
+
+  // inject HttpClient for REST calls
+  constructor(private httpClient: HttpClient) {}
 
   // populate months from checkbox
   getCreditCardMonths(startMonth: number): Observable<number[]> {
