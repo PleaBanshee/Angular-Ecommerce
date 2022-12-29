@@ -91,6 +91,12 @@ export class CheckoutFormComponent implements OnInit {
         this.checkoutFormGroup.get('customer')?.value.email
       }`
     );
+    console.log(`Shipping Address country code: ${this.checkoutFormGroup.get('shippingAddress')?.value.country.code}`);
+    console.log(`Shipping Address country name: ${this.checkoutFormGroup.get('shippingAddress')?.value.country.name}`);
+    console.log(`Shipping Address state name: ${this.checkoutFormGroup.get('shippingAddress')?.value.state.name}`);
+    console.log(`Billing Address country code: ${this.checkoutFormGroup.get('billingAddress')?.value.country.code}`);
+    console.log(`Billing Address country name: ${this.checkoutFormGroup.get('billingAddress')?.value.country.name}`);
+    console.log(`Billing Address state name: ${this.checkoutFormGroup.get('billingAddress')?.value.state.name}`);
   }
 
   // copy shipping address to billing address
@@ -130,8 +136,6 @@ export class CheckoutFormComponent implements OnInit {
     const formGroup = this.checkoutFormGroup.get(formGroupName);
     const countryCode = formGroup?.value.country.code; // safe navigation operator, ?, guards against null and undefined values
     const countryName = formGroup?.value.country.name;
-    console.log(`${formGroupName} country code: ${countryCode}`);
-    console.log(`${formGroupName} country name: ${countryName}`);
     this.checkoutService.getStates(countryCode).subscribe((data) => {
       if (formGroupName === 'shippingAddress') {
         this.shippingAddressStates = data;
