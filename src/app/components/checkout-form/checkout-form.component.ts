@@ -35,31 +35,90 @@ export class CheckoutFormComponent implements OnInit {
   ngOnInit(): void {
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
-        firstName: [''],
-        lastName: [''],
-        email: [''],
+        // FormControl(value, validators)
+        firstName: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        lastName: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        email: new FormControl('', [
+          Validators.required,
+          // regex expression for email validation
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+        ]),
       }),
       shippingAddress: this.formBuilder.group({
-        street: [''],
-        city: [''],
-        state: [''],
-        country: [''],
-        zipCode: [''],
+        street: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        city: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        state: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        country: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        zipCode: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
       }),
       billingAddress: this.formBuilder.group({
-        street: [''],
-        city: [''],
-        state: [''],
-        country: [''],
-        zipCode: [''],
+        street: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        city: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        state: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        country: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        zipCode: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
       }),
       creditCard: this.formBuilder.group({
-        cardType: [''],
-        nameOnCard: [''],
-        cardNumber: [''],
-        securityCode: [''],
-        expirationMonth: [''],
-        expirationYear: [''],
+        cardType: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        nameOnCard: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        cardNumber: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        securityCode: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        expirationMonth: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
+        expirationYear: new FormControl('', [
+          Validators.required,
+          Validators.minLength(2),
+        ]),
       }),
     });
 
@@ -91,12 +150,36 @@ export class CheckoutFormComponent implements OnInit {
         this.checkoutFormGroup.get('customer')?.value.email
       }`
     );
-    console.log(`Shipping Address country code: ${this.checkoutFormGroup.get('shippingAddress')?.value.country.code}`);
-    console.log(`Shipping Address country name: ${this.checkoutFormGroup.get('shippingAddress')?.value.country.name}`);
-    console.log(`Shipping Address state name: ${this.checkoutFormGroup.get('shippingAddress')?.value.state.name}`);
-    console.log(`Billing Address country code: ${this.checkoutFormGroup.get('billingAddress')?.value.country.code}`);
-    console.log(`Billing Address country name: ${this.checkoutFormGroup.get('billingAddress')?.value.country.name}`);
-    console.log(`Billing Address state name: ${this.checkoutFormGroup.get('billingAddress')?.value.state.name}`);
+    console.log(
+      `Shipping Address country code: ${
+        this.checkoutFormGroup.get('shippingAddress')?.value.country.code
+      }`
+    );
+    console.log(
+      `Shipping Address country name: ${
+        this.checkoutFormGroup.get('shippingAddress')?.value.country.name
+      }`
+    );
+    console.log(
+      `Shipping Address state name: ${
+        this.checkoutFormGroup.get('shippingAddress')?.value.state.name
+      }`
+    );
+    console.log(
+      `Billing Address country code: ${
+        this.checkoutFormGroup.get('billingAddress')?.value.country.code
+      }`
+    );
+    console.log(
+      `Billing Address country name: ${
+        this.checkoutFormGroup.get('billingAddress')?.value.country.name
+      }`
+    );
+    console.log(
+      `Billing Address state name: ${
+        this.checkoutFormGroup.get('billingAddress')?.value.state.name
+      }`
+    );
   }
 
   // copy shipping address to billing address
