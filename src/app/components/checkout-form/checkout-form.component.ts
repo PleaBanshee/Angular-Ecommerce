@@ -5,6 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Country } from 'src/app/common/country';
+import { State } from 'src/app/common/state';
 import { CheckoutService } from 'src/app/services/checkout.service';
 
 @Component({
@@ -18,7 +20,10 @@ export class CheckoutFormComponent implements OnInit {
   totalQuantity: number = 0;
   creditCardYears: number[] = [];
   creditCardMonths: number[] = [];
-  currentMonth = new Date().getMonth() + 1;
+  currentMonth: number = new Date().getMonth() + 1; // months are zero-based in TypeScript
+  countries: Country[] = [];
+  shippingAddressStates: State[] = [];
+  billingAddressStates: State[] = [];
 
   // inject FormBuilder and CheckoutService
   constructor(
@@ -68,6 +73,18 @@ export class CheckoutFormComponent implements OnInit {
     this.checkoutService.getCreditCardYears().subscribe((data) => {
       console.log('Retrieved credit card years: ' + JSON.stringify(data));
       this.creditCardYears = data;
+    });
+
+    // populate countries
+    this.checkoutService.getCountries().subscribe((data) => {
+      console.log('Retrieved countries: ' + JSON.stringify(data));
+      this.countries = data;
+    });
+    // populate states
+    this.checkoutService.getStates("US").subscribe((data) => {
+      console.log('Retrieved states: ' + JSON.stringify(data));
+      this.shippingAddressStates = data;
+      this.billingAddressStates = data;
     });
   }
 
