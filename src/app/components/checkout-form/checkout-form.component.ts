@@ -80,12 +80,6 @@ export class CheckoutFormComponent implements OnInit {
       console.log('Retrieved countries: ' + JSON.stringify(data));
       this.countries = data;
     });
-    // populate states
-    this.checkoutService.getStates("US").subscribe((data) => {
-      console.log('Retrieved states: ' + JSON.stringify(data));
-      this.shippingAddressStates = data;
-      this.billingAddressStates = data;
-    });
   }
 
   onSubmit() {
@@ -128,6 +122,24 @@ export class CheckoutFormComponent implements OnInit {
     this.checkoutService.getCreditCardMonths(startMonth).subscribe((data) => {
       console.log('Retrieved credit card months: ' + JSON.stringify(data));
       this.creditCardMonths = data;
+    });
+  }
+
+  // get states for the selected country
+  getStates(formGroupName: string) {
+    const formGroup = this.checkoutFormGroup.get(formGroupName);
+    const countryCode = formGroup?.value.country.code; // safe navigation operator, ?, guards against null and undefined values
+    const countryName = formGroup?.value.country.name;
+    console.log(`${formGroupName} country code: ${countryCode}`);
+    console.log(`${formGroupName} country name: ${countryName}`);
+    this.checkoutService.getStates(countryCode).subscribe((data) => {
+      if (formGroupName === 'shippingAddress') {
+        this.shippingAddressStates = data;
+      } else {
+        this.billingAddressStates = data;
+      }
+      // select the first item by default
+      formGroup?.get('state')?.setValue(data[0]);
     });
   }
 }
