@@ -105,8 +105,12 @@ export class CheckoutFormComponent implements OnInit {
       this.checkoutFormGroup.controls['billingAddress'].setValue(
         this.checkoutFormGroup.controls['shippingAddress'].value
       );
+      // update shipping and billing states
+      this.billingAddressStates = this.shippingAddressStates;
     } else {
       this.checkoutFormGroup.controls['billingAddress'].reset();
+      // reset billing states
+      this.billingAddressStates = [];
     }
   }
 
