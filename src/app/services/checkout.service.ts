@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
+import { Country } from '../common/country';
+import { State } from '../common/state';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +13,22 @@ export class CheckoutService {
 
   // inject HttpClient for REST calls
   constructor(private httpClient: HttpClient) {}
+
+  // return countries to populate dropdown
+  getCountries(): Observable<Country[]> {
+    return this.httpClient.get<GetResponseCountries>(this.countriesUrl).pipe(
+      map((response) => response._embedded.countries) // returns Observable
+    );
+  }
+
+  // return states to populate dropdown
+  getStates(countryCode: string): Observable<State[]> {
+    // search url
+    const searchStatesUrl = `${this.statesUrl}/search/findByCountryCode?code=${countryCode}`;
+    return this.httpClient.get<GetResponseStates>(searchStatesUrl).pipe(
+      map((response) => response._embedded.states)
+    );
+  }
 
   // populate months from checkbox
   getCreditCardMonths(startMonth: number): Observable<number[]> {
@@ -39,4 +57,17 @@ export class CheckoutService {
     // return years as an Observable
     return of(data);
   }
+}
+
+// JSON of REST API
+interface GetResponseCountries {
+  _embedded: {
+    countries: Country[];
+  };
+}
+
+interface GetResponseStates {
+  _embedded: {
+    states: State[];
+  };
 }
