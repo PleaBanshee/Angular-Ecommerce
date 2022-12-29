@@ -13,7 +13,7 @@ export class CheckoutService {
 
     // build an array for "Month" dropdown list
     // - start at current month and loop until last month in year
-    for (let month = startMonth; month <= 12; month++) {
+    for (let month = 1; month <= 12; month++) {
       data.push(month);
     }
     // return months as an Observable

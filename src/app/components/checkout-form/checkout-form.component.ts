@@ -18,6 +18,7 @@ export class CheckoutFormComponent implements OnInit {
   totalQuantity: number = 0;
   creditCardYears: number[] = [];
   creditCardMonths: number[] = [];
+  currentMonth = new Date().getMonth() + 1;
 
   // inject FormBuilder and CheckoutService
   constructor(
@@ -58,7 +59,7 @@ export class CheckoutFormComponent implements OnInit {
     });
 
     // populate credit card months
-    const startMonth: number = new Date().getMonth() + 1; // months are zero-based in TypeScript
+    let startMonth: number = new Date().getMonth() + 1; // months are zero-based in TypeScript
     this.checkoutService.getCreditCardMonths(startMonth).subscribe((data) => {
       console.log('Retrieved credit card months: ' + JSON.stringify(data));
       this.creditCardMonths = data;
