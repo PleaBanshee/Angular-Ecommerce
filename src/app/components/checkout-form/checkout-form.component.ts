@@ -197,6 +197,18 @@ export class CheckoutFormComponent implements OnInit {
     }
   }
 
+  get firstName() {
+    return this.checkoutFormGroup.get('customer')?.value.firstName;
+  }
+
+  get lastName() {
+    return this.checkoutFormGroup.get('customer')?.value.lastName;
+  }
+
+  get email() {
+    return this.checkoutFormGroup.get('customer')?.value.email;
+  }
+
   // modify the credit card months based on the year selected
   handleMonthsAndYears() {
     const creditCardFormGroup = this.checkoutFormGroup.get('creditCard');
