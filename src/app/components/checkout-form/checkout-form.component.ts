@@ -143,6 +143,10 @@ export class CheckoutFormComponent implements OnInit {
 
   onSubmit() {
     console.log('Handling the form checkout');
+    // if there is invalid data on the checkout form, do not submit
+    if (this.checkoutFormGroup.invalid) {
+      this.checkoutFormGroup.markAllAsTouched(); // display error messages
+    }
     // log form values. Check for null or undefined values
     console.log(this.checkoutFormGroup.get('customer')?.value);
     console.log(
