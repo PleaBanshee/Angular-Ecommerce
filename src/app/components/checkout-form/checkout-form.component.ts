@@ -38,88 +38,88 @@ export class CheckoutFormComponent implements OnInit {
         // FormControl(value, validators)
         firstName: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         lastName: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         email: new FormControl('', [
           Validators.required,
           // regex expression for email validation
-          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
-        ]),
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
+        ])
       }),
       shippingAddress: this.formBuilder.group({
         street: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         city: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         state: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         country: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         zipCode: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
-        ]),
+          Validators.minLength(2)
+        ])
       }),
       billingAddress: this.formBuilder.group({
         street: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         city: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         state: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         country: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         zipCode: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
-        ]),
+          Validators.minLength(2)
+        ])
       }),
       creditCard: this.formBuilder.group({
         cardType: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         nameOnCard: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         cardNumber: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         securityCode: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         expirationMonth: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
+          Validators.minLength(2)
         ]),
         expirationYear: new FormControl('', [
           Validators.required,
-          Validators.minLength(2),
-        ]),
-      }),
+          Validators.minLength(2)
+        ])
+      })
     });
 
     // populate credit card months
